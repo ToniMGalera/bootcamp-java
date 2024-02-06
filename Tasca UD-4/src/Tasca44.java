@@ -14,8 +14,8 @@ public class Tasca44 {
         System.out.println("N decrementada en 3: " + N);
 
         // Duplicar su valor
-        N *= 2;
-        System.out.println("N duplicada: " + N);// TODO Auto-generated method stub
+        N *= 2; //N=N*2;//150
+        System.out.println("N duplicada: " + N);
 
 	}
 
