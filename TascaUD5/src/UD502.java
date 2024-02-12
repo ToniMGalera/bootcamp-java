@@ -1,5 +1,5 @@
 import javax.swing.JOptionPane;
-public class UD52 {
+public class UD502 {
 
 	public static void main(String[] args) {
 		String nombre=JOptionPane.showInputDialog("Introduce tu nombre");

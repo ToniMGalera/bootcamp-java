@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class UD56 {
+public class UD506 {
 
 		public static void main(String [] args) {
 			// Constante IVA

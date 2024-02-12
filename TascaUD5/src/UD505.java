@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class UD55 {
+public class UD505 {
 
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(System.in);
@@ -8,11 +8,11 @@ public class UD55 {
 		
 	int numero=scanner.nextInt();
 	if (numero % 2 == 0) {
-		System.out.println("El número " +numero+ " es divisible de 2");
+		System.out.println("El número " +numero+ " es divisible de 2.");
 		
 	} else {
 		
-		System.out.println("El número " + numero + " no es divisible entre 2");
+		System.out.println("El número " + numero + " no es divisible entre 2.");
 
 	}
 	scanner.close();
