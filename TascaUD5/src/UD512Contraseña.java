@@ -11,7 +11,7 @@ public class UD512Contraseña {
 			passUsuario=JOptionPane.
 					showInputDialog("Introduce contraseña: ");
 			if (pass.equals (passUsuario)) {
-				mensaje = "Enhorabuena";
+				mensaje = "Perfecto,contraseña valida";
 				break;
 			} else {
 					mensaje = "Contraseña incorrecta";
