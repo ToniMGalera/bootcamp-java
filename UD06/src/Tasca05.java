@@ -16,7 +16,7 @@ public class Tasca05 {
 
 	    public static String convertirABinario(int numeroDecimal) {
 	        if (numeroDecimal == 0) {
-	            return "0"; // Caso especial: 0 en decimal es 0 en binario
+	            return "0";
 	        }
 
 	        StringBuilder resultadoBinario = new StringBuilder();

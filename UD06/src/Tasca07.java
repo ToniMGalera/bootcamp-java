@@ -34,7 +34,7 @@ public class Tasca07 {
                 nombreMoneda = "yenes";
                 break;
             default:
-                System.out.println("Moneda no válida. Por favor, ingresa libras, dolares o yenes.");
+                System.out.println("Moneda no válida. Ingresa libras, dólares o yenes.");
                 return; // Sale del método si la moneda no es válida
         }
 

@@ -23,6 +23,7 @@ public class Tasca04 {
         for(int i=1; i<= numero; i++) {
         	resultado *=i;
         	
+        	
         }
         return resultado;
         	
