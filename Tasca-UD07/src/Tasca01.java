@@ -19,7 +19,7 @@ public class Tasca01 {
             // Agregar el nombre del alumno a la lista
             alumnos.add(nombreAlumno);
 
-            // Agregar la nota del alumno al diccionario
+            // Agregar la nota del alumno
             notasMedias.put(nombreAlumno, nota);
         }
 
