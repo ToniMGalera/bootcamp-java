@@ -106,30 +106,6 @@ public class Persona {
 	        this.altura = altura;
 	    }
 
-	    // Otros métodos públicos
-	    // Método para calcular el índice de masa corporal (IMC)
-	    public double calcularIMC() {
-	        double imc = peso / (altura * altura);
-	        return imc;
-	    }
-
-	    // Método para comprobar si la persona está en su peso ideal según el IMC
-	    public String comprobarPeso() {
-	        double imc = calcularIMC();
-	        if (imc < 18.5) {
-	            return "Bajo peso";
-	        } else if (imc >= 18.5 && imc < 25) {
-	            return "Peso normal";
-	        } else {
-	            return "Sobrepeso";
-	        }
-	    }
-
-	    // Método para comprobar si la persona es mayor de edad
-	    public boolean esMayorEdad() {
-	        return edad >= 18;
-	    }
-
 	    // Método para mostrar información de la persona
 	    public void mostrarInformacion() {
 	        System.out.println("Nombre: " + nombre);
