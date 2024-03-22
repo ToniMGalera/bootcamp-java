@@ -22,7 +22,7 @@ public class MainApp {
 		List<Producto> carrito = new ArrayList<>();
 
 		while (true) {
-			String opcion = JOptionPane.showInputDialog(null, "---- Ceboas Store ----\n" + "1. Catalogo \n"
+			String opcion = JOptionPane.showInputDialog(null, "---- Ceboas Store ----\n" + "1. Catálogo \n"
 					+ "2. Comprar producto\n" + "3. Modo Admin\n" + "4. Salir\n" + "Seleccione una opción:");
 
 			if (opcion == null) {
@@ -57,7 +57,7 @@ public class MainApp {
 	private static void mostrarProductos(List<Producto> catalogo) {
 		StringBuilder productosInfo = new StringBuilder();
 		productosInfo.append("Lista de productos:\n");
-		productosInfo.append("---Catalogo de Ceboas Store---\n");
+		productosInfo.append("---Catálogo de Ceboas Store---\n");
 		productosInfo.append("----------------------------------------------\n");
 		for (Producto producto : catalogo) {
 			if (producto.getCantidadDisponible() > 0) {
@@ -239,7 +239,7 @@ public class MainApp {
 	private static void vertotalProductos(List<Producto> catalogo) {
 		StringBuilder totalProductos = new StringBuilder();
 		totalProductos.append("Total de productos disponibles:\n");
-		totalProductos.append("---Catalogo de Ceboas Store---\n");
+		totalProductos.append("---Catálogo de Ceboas Store---\n");
 		totalProductos.append("----------------------------------------------\n");
 		for (Producto producto : catalogo) {
 			totalProductos.append(producto.getNombre()).append("   ").append(producto.getPrecio()).append("€  ")
