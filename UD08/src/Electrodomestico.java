@@ -13,23 +13,23 @@ public class Electrodomestico {
 	        
 	        Electrodomestico electrodomestico1 = new Electrodomestico();
 
-	        // Mostrar la información del primer electrodoméstico
+	        //info del primer electrodoméstico
 	        System.out.println("Electrodoméstico 1:");
 	        electrodomestico1.mostrarInformacion();
 	        System.out.println(); // Salto de línea para separar la información
 
-	        // Constructor con precio y peso
+	        //precio y peso
 	        Electrodomestico electrodomestico2 = new Electrodomestico(150, 8);
 
-	        // Mostrar la información del segundo electrodoméstico
+	        // info del segundo electrodoméstico
 	        System.out.println("Electrodoméstico 2:");
 	        electrodomestico2.mostrarInformacion();
 	        System.out.println();
 
-	        // Crear un electrodoméstico utilizando el constructor con todos los atributos
+	        // electrodoméstico con todos los atributos
 	        Electrodomestico electrodomestico3 = new Electrodomestico(200, "azul", 'A', 10);
 
-	        // Mostrar la información del tercer electrodoméstico en la consola
+	        //información del tercer electrodoméstico
 	        System.out.println("Electrodoméstico 3:");
 	        electrodomestico3.mostrarInformacion();
 	    }

@@ -9,7 +9,7 @@ public class MainApp {
 	public static void main(String[] args) {
 		List<Producto> catalogo = new ArrayList<>();
 		catalogo.add(new Producto("Dragon's Dogma 2", 80, 50, 21));
-		catalogo.add(new Producto("Persona 3 Reloaded", 59.95, 15, 21));
+		catalogo.add(new Producto("Sims", 59.95, 15, 21));
 		catalogo.add(new Producto("Fable", 69.99, 30, 21));
 		catalogo.add(new Producto("The Binding of Isaac", 24.99, 18, 21));
 		catalogo.add(new Producto("Skyrim", 9.99, 13, 21));

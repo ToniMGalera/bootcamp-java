@@ -15,7 +15,7 @@ public class Serie {
         this.creador = "Creador por defecto";
     }
 
-    // Constructor con título y creador, el resto por defecto
+    // título y creador, el resto por defecto
     public Serie(String titulo, String creador) {
         this.titulo = titulo;
         this.numeroTemporadas = 3;
@@ -24,7 +24,7 @@ public class Serie {
         this.creador = creador;
     }
 
-    // Constructor con todos los atributos excepto entregado
+    // Constructor con todos los atributos
     public Serie(String titulo, int numeroTemporadas, String genero, String creador) {
         this.titulo = titulo;
         this.numeroTemporadas = numeroTemporadas;
@@ -33,7 +33,7 @@ public class Serie {
         this.creador = creador;
     }
 
-    // Método para mostrar información de la serie en la consola
+    // información de la serie en la consola
     public void mostrarInformacion() {
         System.out.println("Título: " + titulo);
         System.out.println("Número de temporadas: " + numeroTemporadas);
