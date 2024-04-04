@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 import java.util.Random;
 
 public class Estudiante {
-	  private String nombre;
+	    private String nombre;
 	    private int edad;
 	    private String sexo;
 	    private int calificacion;

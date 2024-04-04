@@ -6,29 +6,29 @@ public class Raices {
     private double b;
     private double c;
 
-    // Constructor
+    //Constructor
     public Raices(double a, double b, double c) {
         this.a = a;
         this.b = b;
         this.c = c;
     }
 
-    // Método para calcular el discriminante
+    //Calcula el disc
     public double getDiscriminante() {
         return Math.pow(b, 2) - 4 * a * c;
     }
 
-    // Método para verificar si tiene dos soluciones
+    //Verificar si tiene dos soluciones
     public boolean tieneRaices() {
         return getDiscriminante() >= 0;
     }
 
-    // Método para verificar si tiene una única solución
+    //Verificar si tiene una única solución
     public boolean tieneRaiz() {
         return getDiscriminante() == 0;
     }
 
-    // Método para calcular las raíces y mostrarlas
+    //Calcula las raíces y mostrarlas
     public void calcular() {
         if (tieneRaices()) {
             double x1 = (-b + Math.sqrt(getDiscriminante())) / (2 * a);

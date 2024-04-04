@@ -11,7 +11,7 @@ public class Ejecutable {
     	Estudiante estudiante4 = new Estudiante("Josep", 18, "femenino", 9);
     	Estudiante estudiante5 = new Estudiante("Miguel", 76, "masculino", 8);
 
-        // Crear aula
+        //Crear aula
     	Aula aula = new Aula(1, 20, "matemáticas", profesor);
         aula.agregarEstudiante (estudiante1);
         aula.agregarEstudiante (estudiante2);
@@ -19,7 +19,7 @@ public class Ejecutable {
         aula.agregarEstudiante (estudiante4);
         aula.agregarEstudiante (estudiante5);
 
-        // Mostrar estado de la clase
+        //Mostrar estado de la clase
         aula.mostrarEstadoClase();
     }
 }

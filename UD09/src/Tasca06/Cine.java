@@ -26,7 +26,7 @@ public class Cine {
         }
     }
 
-    // Método para mostrar información de la película en reproducción
+    //info peli
     public void mostrarInformacionPelicula() {
         JOptionPane.showMessageDialog(null, "Película en reproducción: " + pelicula.getTitulo() +
             "\nDuración: " + pelicula.getDuracion() + " minutos" +
@@ -35,7 +35,7 @@ public class Cine {
             "\nPrecio de la entrada: $" + precio);
     }
 
-    // Método para mostrar el estado de los asientos
+    //mostrar estado asientos
     public void mostrarEstadoAsientos() {
         StringBuilder estadoAsientos = new StringBuilder();
         for (int i = 0; i < filas; i++) {
@@ -47,7 +47,7 @@ public class Cine {
         JOptionPane.showMessageDialog(null, "Estado de los asientos:\n" + estadoAsientos.toString());
     }
 
-    // Método para sentar a un espectador aleatoriamente si hay espacio libre
+    //sentar espectador aleatoriamente si hay espacio libre
     public boolean sentarEspectador(Espectador espectador) {
         int intentos = filas * columnas;
         while (intentos > 0) {

@@ -15,7 +15,7 @@ public class Asiento {
         this.espectador = null;
     }
 
-    // Métodos getter y setter
+    //getter y setter
     public int getFila() {
         return fila;
     }
@@ -32,7 +32,7 @@ public class Asiento {
         this.espectador = espectador;
     }
 
-    // Método para verificar si el asiento está ocupado
+    // por si el asiento está ocupado
     public boolean estaOcupado() {
         return espectador != null;
     }
