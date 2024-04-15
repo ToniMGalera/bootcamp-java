@@ -8,13 +8,13 @@ public class Main {
     public static void main(String[] args) {
         Cine cine = new Cine(new Pelicula("Pesadillas antes de Navidad", 75, 12, "Tim Burton"), 10.0, 8, 8);
 
-        // info peli
+        //info peli
         cine.mostrarInformacionPelicula();
 
-        // Mostrar estado inicial de los asientos
+        //Mostrar estado inicial de los asientos
         cine.mostrarEstadoAsientos();
 
-        // espectadores
+        //Espectadores
         ArrayList<Espectador> espectadores = new ArrayList<>();
         espectadores.add(new Espectador("Juan", 25, 15.0));
         espectadores.add(new Espectador("Ana", 30, 8.0));
@@ -37,8 +37,7 @@ public class Main {
         espectadores.add(new Espectador("Juan Alberto", 35, 14.0));
         espectadores.add(new Espectador("Bruno Diaz", 7, 13.0));
 
-
-        // Sentar
+        //Sentar
         for (Espectador espectador : espectadores) {
             boolean pudoSentarse = cine.sentarEspectador(espectador);
             if (pudoSentarse) {
@@ -48,7 +47,7 @@ public class Main {
             }
         }
 
-        // Mostrar estado actualizado de los asientos
+        //Actualización de los asientos
         cine.mostrarEstadoAsientos();
     }
 

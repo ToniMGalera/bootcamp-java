@@ -16,7 +16,7 @@ public class Pelicula {
         this.director = director;
     }
 
-    // Métodos getter
+    //Métodos getter
     public String getTitulo() {
         return titulo;
     }

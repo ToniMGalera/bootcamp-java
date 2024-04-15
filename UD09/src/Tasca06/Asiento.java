@@ -8,7 +8,7 @@ public class Asiento {
     private char columna;
     private Espectador espectador;
 
-    // Constructor
+    //Constructor
     public Asiento(int fila, char columna) {
         this.fila = fila;
         this.columna = columna;
@@ -32,7 +32,7 @@ public class Asiento {
         this.espectador = espectador;
     }
 
-    // por si el asiento está ocupado
+    //Por si el asiento está ocupado
     public boolean estaOcupado() {
         return espectador != null;
     }
