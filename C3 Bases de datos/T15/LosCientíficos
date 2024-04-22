@@ -1,0 +1,54 @@
+CREATE TABLE CIENTIFICOS (
+    DNI VARCHAR(8) PRIMARY KEY,
+    NomApels NVARCHAR(255)
+);
+
+INSERT INTO CIENTIFICOS (DNI, NomApels) VALUES
+('00000000', 'Pablo Fernández'),
+('11111111', 'Robert Gilmour'),
+('22222222', 'Michael Scott'),
+('33333333', 'Josep Guardiola'),
+('44444444', 'Facundo Tanhaussen'),
+('55555555', 'John Bottle'),
+('66666666', 'Xavi Hernández'),
+('77777777', 'Hansi Flick'),
+('88888888', 'El cigala'),
+('99999999', 'Miquel Montalvo');
+
+CREATE TABLE PROYECTO (
+    Proyecto CHAR(4) PRIMARY KEY,
+    Nombre NVARCHAR(255),
+    Horas INT
+);
+
+INSERT INTO PROYECTO (Proyecto, Nombre, Horas) VALUES
+('A000', 'Proyecto Wee', 100),
+('B111', 'Proyecto Melatonina', 150),
+('C222', 'Proyecto Red', 200),
+('D333', 'Proyecto Scarlett', 180),
+('E444', 'Proyecto Invictus', 120),
+('F555', 'Proyecto Halo', 250),
+('G666', 'Proyecto Gear', 170),
+('H777', 'Proyecto Redemption', 190),
+('I888', 'Proyecto Agua', 220),
+('J999', 'Proyecto Outline', 140);
+
+CREATE TABLE ASIGNADO_A (
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    Cientifico VARCHAR(8),
+    Proyecto CHAR(4),
+    FOREIGN KEY (Cientifico) REFERENCES CIENTIFICOS(DNI),
+    FOREIGN KEY (Proyecto) REFERENCES PROYECTO(Proyecto)
+);
+
+INSERT INTO ASIGNADO_A (Cientifico, Proyecto) VALUES
+('00000000', 'A000'),
+('11111111', 'B111'),
+('22222222', 'C222'),
+('33333333', 'D333'),
+('44444444', 'E444'),
+('55555555', 'F555'),
+('66666666', 'G666'),
+('77777777', 'H777'),
+('88888888', 'I888'),
+('99999999', 'J999');

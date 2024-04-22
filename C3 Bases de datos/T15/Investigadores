@@ -1,0 +1,84 @@
+-- Crear tabla facultad
+CREATE TABLE facultad (
+    Codigo INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre NVARCHAR(100)
+);
+
+-- Insertar datos en la tabla facultad
+INSERT INTO facultad (Nombre) VALUES
+('Biologia'),
+('Ingenieria'),
+('Educación'),
+('Física'),
+('Filosofía'),
+('Derecho'),
+('Historia'),
+('Bellas Artes'),
+('Psicología'),
+('Audiovisuales');
+
+-- Crear tabla investigadores
+CREATE TABLE investigadores (
+    DNI VARCHAR(8) PRIMARY KEY,
+    NomApels NVARCHAR(255),
+    Facultad INT,
+    FOREIGN KEY (Facultad) REFERENCES facultad(Codigo)
+);
+
+-- Insertar datos en la tabla investigadores
+INSERT INTO investigadores (DNI, NomApels, Facultad) VALUES
+('49975562N', 'Esteve Martínez', 1),
+('39653302Z', 'Jim Harper', 2),
+('92183712J', 'Ryan Becario', 3),
+('35174935P', 'Andy Escudero', 4),
+('174343754T', 'David Concha', 5),
+('784273463N', 'Juan Cuesta', 6),
+('756372445P', 'John Wick', 7),
+('465727472L', 'Olver Atom', 8),
+('452412114A', 'Joey Jordison', 9),
+('A45456201C', 'Miguel Angel Roman', 10);
+
+-- Crear tabla equipos
+CREATE TABLE equipos (
+    NumSerie CHAR(4) PRIMARY KEY,
+    Nombre NVARCHAR(100),
+    Facultad INT,
+    FOREIGN KEY (Facultad) REFERENCES facultad(Codigo)
+);
+
+-- Insertar datos en la tabla equipos
+INSERT INTO equipos (NumSerie, Nombre, Facultad) VALUES
+('A001', 'Biologia', 1),
+('B002', 'Ingeniería', 2),
+('C003', 'Educación', 3),
+('D004', 'Física', 4),
+('E005', 'Filosofía', 5),
+('F006', 'Derecho', 6),
+('G007', 'Historia', 7),
+('H008', 'Bellas Artes', 8),
+('I009', 'Psicología', 9),
+('J010', 'Audiovisuales', 10);
+
+-- Crear tabla reserva
+CREATE TABLE reserva (
+    DNI VARCHAR(8),
+    NumSerie CHAR(4),
+    Comienzo DATETIME,
+    Fin DATETIME,
+    PRIMARY KEY (DNI, NumSerie),
+    FOREIGN KEY (DNI) REFERENCES investigadores(DNI),
+    FOREIGN KEY (NumSerie) REFERENCES equipos(NumSerie)
+);
+
+-- Insertar datos en la tabla reserva
+INSERT INTO reserva (DNI, NumSerie, Comienzo, Fin) VALUES
+('49975562N', 'A001', DATE_ADD(CURDATE(), INTERVAL 1 DAY), DATE_ADD(CURDATE(), INTERVAL 11 DAY)),
+('39653302Z', 'B002', DATE_ADD(CURDATE(), INTERVAL 1 DAY), DATE_ADD(CURDATE(), INTERVAL 11 DAY)),
+('92183712J', 'C003', DATE_ADD(CURDATE(), INTERVAL 1 DAY), DATE_ADD(CURDATE(), INTERVAL 11 DAY)),
+('35174935P', 'D004', DATE_ADD(CURDATE(), INTERVAL 1 DAY), DATE_ADD(CURDATE(), INTERVAL 11 DAY)),
+('174343754T', 'E005', DATE_ADD(CURDATE(), INTERVAL 1 DAY), DATE_ADD(CURDATE(), INTERVAL 11 DAY)),
+('784273463N', 'F006', DATE_ADD(CURDATE(), INTERVAL 1 DAY), DATE_ADD(CURDATE(), INTERVAL 11 DAY)),
+('756372445P', 'G007', DATE_ADD(CURDATE(), INTERVAL 1 DAY), DATE_ADD(CURDATE(), INTERVAL 11 DAY)),
+('465727472L', 'H008', DATE_ADD(CURDATE(), INTERVAL 1 DAY), DATE_ADD(CURDATE(), INTERVAL 11 DAY)),
+('452412114A', 'I009', DATE_ADD(CURDATE(), INTERVAL 1 DAY), DATE_ADD(CURDATE(), INTERVAL 11 DAY)),
+('A45456201C', 'J010', DATE_ADD(CURDATE(), INTERVAL 1 DAY), DATE_ADD(CURDATE(), INTERVAL 11 DAY));

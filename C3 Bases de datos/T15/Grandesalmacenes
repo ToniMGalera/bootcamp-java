@@ -1,0 +1,71 @@
+CREATE TABLE cajeros (
+    cod_cajero INT PRIMARY KEY,
+    nom_apels VARCHAR(255)
+);
+
+INSERT INTO cajeros (cod_cajero, nom_apels) VALUES
+(0, 'Lluis Josep'),
+(1, 'Pepe'),
+(2, 'Robert'),
+(3, 'Adolfo'),
+(4, 'Ana Rodríguez'),
+(5, 'Pedro Sánchez'),
+(6, 'Laura García'),
+(7, 'Lolo'),
+(8, 'Niño Torres'),
+(9, 'Josep Lluis');
+
+CREATE TABLE productos (
+    cod_producto INT PRIMARY KEY,
+    nombre VARCHAR(255),
+    precio DECIMAL(10, 2)
+);
+
+INSERT INTO productos (cod_producto, nombre, precio) VALUES
+(100, 'Anillo', 15000),
+(101, 'Calzón', 15),
+(102, 'Pantalón largo', 25),
+(103, 'Zapatos', 50),
+(104, 'Calcetines', 14),
+(105, 'Reloj', 100),
+(106, 'Bolso', 18),
+(107, 'Collar', 9),
+(108, 'Gorro', 11),
+(109, 'Patalón corto', 21);
+
+CREATE TABLE maq_registradoras (
+    cod_maq INT PRIMARY KEY,
+    piso INT
+);
+
+INSERT INTO maq_registradoras (cod_maq, piso) VALUES
+(200, 1),
+(201, 1),
+(202, 1),
+(203, 1),
+(204, 2),
+(205, 2),
+(206, 2),
+(207, 3),
+(208, 3),
+(209, 3);
+
+CREATE TABLE venta (
+    cod_producto INT,
+    cod_cajero INT,
+    cod_maq INT,
+    FOREIGN KEY (cod_producto) REFERENCES productos(cod_producto),
+    FOREIGN KEY (cod_cajero) REFERENCES cajeros(cod_cajero),
+    FOREIGN KEY (cod_maq) REFERENCES maq_registradoras(cod_maq)
+);
+
+INSERT INTO venta (cod_producto, cod_cajero, cod_maq) VALUES
+(101, 1, 201),
+(102, 2, 202),
+(103, 3, 203),
+(104, 4, 204),
+(105, 5, 205),
+(106, 6, 206),
+(107, 7, 207),
+(108, 8, 208),
+(109, 9, 209);

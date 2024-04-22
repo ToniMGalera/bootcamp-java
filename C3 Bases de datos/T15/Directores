@@ -1,0 +1,32 @@
+-- Crear tabla despachos
+CREATE TABLE despachos (
+    Numero INT PRIMARY KEY,
+    Capacidad INT
+);
+
+-- Insertar datos en la tabla despachos
+INSERT INTO despachos (capacidad) VALUES
+(1),(2),(3),(4),(5),(6),(7),(8),(9),(10);
+
+-- Crear tabla directores
+CREATE TABLE directores (
+    DNI VARCHAR(8) PRIMARY KEY,
+    NomApels NVARCHAR(255),
+    DNIJefe VARCHAR(8),
+    Despacho INT,
+    FOREIGN KEY (DNIJefe) REFERENCES directores(DNI),
+    FOREIGN KEY (Despacho) REFERENCES despachos(Numero)
+);
+
+-- Insertar datos en la tabla directores
+INSERT INTO directores (DNI, NomApels, DNIJefe, Despacho) VALUES
+('12345', 'Gisbert Martínez, Ignasi', NULL, 1), 
+('22345', 'Messi, Leo', NULL, 2),
+('32345', 'Swayer, Josh', NULL, 3), 
+('42345', 'Boy, Vault', NULL, 4), 
+('62345', 'Skellington, Jack', NULL, 5), 
+('52345', 'Black, Jack', NULL, 6), 
+('72345', 'Reeves, Keanu', NULL, 7), 
+('82345', 'Wick, John', NULL, 8), 
+('92345', 'Aventurero, Joven', NULL, 9), 
+('02345', 'Auditore, Ezio ', NULL, 10);

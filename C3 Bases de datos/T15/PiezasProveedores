@@ -1,0 +1,43 @@
+CREATE TABLE Piezas (
+    Codigo INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre NVARCHAR(100)
+);
+
+INSERT INTO Piezas (Nombre) VALUES
+('Tornillo'),
+('martillo'),
+('rodillo'),
+('clavo'),
+('muelle'),
+('allen'),
+('clavija'),
+('brida'),
+('tuerca'),
+('válvula');
+
+CREATE TABLE Proveedores (
+    Codigo CHAR(4) PRIMARY KEY,
+    Nombre NVARCHAR(100),
+    Precio INT
+);
+
+INSERT INTO Proveedores (Codigo, Nombre, Precio) VALUES
+('1000', 'LeroyMerlin', 80),
+('2000', 'Ikea', 88),
+('3000', 'Padrell', 95),
+('4000', 'BauHaus', 68),
+('5000', 'Bricor', 65),
+('6000', 'Icomobeldisseny', 73),
+('7000', 'Dcor', 115),
+('8000', 'Ricote', 93),
+('9000', 'Moben', 69),
+('0000', 'Codes', 110);
+
+CREATE TABLE SUMINISTRA (
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    CodigoPieza INT,
+    IdProveedor CHAR(4),
+    Precio INT,
+    FOREIGN KEY (CodigoPieza) REFERENCES Piezas(Codigo),
+    FOREIGN KEY (IdProveedor) REFERENCES Proveedores(Codigo)
+);
