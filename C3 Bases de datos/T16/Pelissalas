@@ -1,0 +1,59 @@
+INSERT INTO peliculas (codigo, nombre, calificacion_edad) VALUES
+	(100, 'The Batman', 12),
+	(101, 'Oppenheimer', 12),
+	(102, 'Pesadillas antes de Navidad', 12),
+	(103, 'John Wick 4', 16),
+	(104, 'El Padrino', 16),
+	(105, 'Saw', 18),
+	(106, 'El precio del Poder', 16),
+	(107, 'Toy Story'),
+	(108, 'El viaje de Chihiro'),
+	(109, 'Indiana Jones y la Última Cruzada');
+
+INSERT INTO salas (codigo, nombre, pelicula) VALUES
+	(1, 'Sala 1', 1),
+	(2, 'Sala 2', 2),
+	(3, 'Sala 3', 3),
+	(4, 'Sala 4'),
+	(5, 'Sala 5', 5),
+	(6, 'Sala 6', 6),
+	(7, 'Sala 7'),
+	(8, 'Sala 8', 8),
+	(9, 'Sala 9', 9),
+	(10, 'Sala 10', 10);
+	
+-- 4.1 Mostrar el nombre de todas las películas.
+SELECT nombre FROM peliculas;
+
+-- 4.2 Mostrar las distintas calificaciones de edad que existen.
+SELECT DISTINCT calificacion_edad FROM peliculas;
+
+-- 4.3 Mostrar todas las películas que no han sido calificadas. 
+SELECT * FROM peliculas WHERE calificacion_edad IS NULL;
+
+-- 4.4 Mostrar todas las salas que no proyectan ninguna películas.
+SELECT * FROM salas WHERE pelicula IS NULL;
+
+-- 4.5 Mostrar la información de todas las salas y, si se proyecta alguna película en la sala, mostrar también la información de la película.
+SELECT s.*, p.*
+FROM salas AS s
+LEFT JOIN peliculas AS p ON s.cod_pelicula = p.cod_pelicula;
+
+-- 4.6 Mostrar la información de todas las películas y, si se proyecta en alguna sala, mostrar también la información de la sala.
+SELECT p.*, s.*
+FROM peliculas AS p
+LEFT JOIN salas AS s ON p.cod_pelicula = s.cod_pelicula;
+
+-- 4.7 Mostrar los nombres de las películas que no se proyectan en ninguna sala.
+SELECT nombre
+FROM peliculas
+WHERE cod_pelicula NOT IN (SELECT cod_pelicula FROM salas);
+
+-- 4.8 Añadir una nueva película 'Uno, Dos ,Tres', para mayores de 7 años.
+INSERT INTO peliculas (codigo, nombre, calificacion_edad) VALUES 
+	(110, 'Uno, Dos ,Tres', 7);
+	
+-- 4.9 Hacer constar que todas las películas no calificadas han sido calificadas 'no recomendables para menores de 13 años'.	
+UPDATE peliculas SET cal_edad = 13 WHERE cal_edad IS NULL;
+-- 4.10) Eliminar todas las salas que proyectan películas recomendadas para todos los públicos
+DELETE FROM salas WHERE cod_pelicula IN (SELECT cod_pelicula FROM peliculas WHERE cal_edad = 0);v

@@ -1,10 +1,8 @@
--- Crear tabla facultad
 CREATE TABLE facultad (
     Codigo INT AUTO_INCREMENT PRIMARY KEY,
     Nombre NVARCHAR(100)
 );
 
--- Insertar datos en la tabla facultad
 INSERT INTO facultad (Nombre) VALUES
 ('Biologia'),
 ('Ingenieria'),
@@ -17,7 +15,6 @@ INSERT INTO facultad (Nombre) VALUES
 ('Psicología'),
 ('Audiovisuales');
 
--- Crear tabla investigadores
 CREATE TABLE investigadores (
     DNI VARCHAR(8) PRIMARY KEY,
     NomApels NVARCHAR(255),
@@ -25,7 +22,6 @@ CREATE TABLE investigadores (
     FOREIGN KEY (Facultad) REFERENCES facultad(Codigo)
 );
 
--- Insertar datos en la tabla investigadores
 INSERT INTO investigadores (DNI, NomApels, Facultad) VALUES
 ('49975562N', 'Esteve Martínez', 1),
 ('39653302Z', 'Jim Harper', 2),
@@ -38,7 +34,6 @@ INSERT INTO investigadores (DNI, NomApels, Facultad) VALUES
 ('452412114A', 'Joey Jordison', 9),
 ('A45456201C', 'Miguel Angel Roman', 10);
 
--- Crear tabla equipos
 CREATE TABLE equipos (
     NumSerie CHAR(4) PRIMARY KEY,
     Nombre NVARCHAR(100),
@@ -46,7 +41,6 @@ CREATE TABLE equipos (
     FOREIGN KEY (Facultad) REFERENCES facultad(Codigo)
 );
 
--- Insertar datos en la tabla equipos
 INSERT INTO equipos (NumSerie, Nombre, Facultad) VALUES
 ('A001', 'Biologia', 1),
 ('B002', 'Ingeniería', 2),
@@ -59,7 +53,6 @@ INSERT INTO equipos (NumSerie, Nombre, Facultad) VALUES
 ('I009', 'Psicología', 9),
 ('J010', 'Audiovisuales', 10);
 
--- Crear tabla reserva
 CREATE TABLE reserva (
     DNI VARCHAR(8),
     NumSerie CHAR(4),
@@ -70,7 +63,6 @@ CREATE TABLE reserva (
     FOREIGN KEY (NumSerie) REFERENCES equipos(NumSerie)
 );
 
--- Insertar datos en la tabla reserva
 INSERT INTO reserva (DNI, NumSerie, Comienzo, Fin) VALUES
 ('49975562N', 'A001', DATE_ADD(CURDATE(), INTERVAL 1 DAY), DATE_ADD(CURDATE(), INTERVAL 11 DAY)),
 ('39653302Z', 'B002', DATE_ADD(CURDATE(), INTERVAL 1 DAY), DATE_ADD(CURDATE(), INTERVAL 11 DAY)),

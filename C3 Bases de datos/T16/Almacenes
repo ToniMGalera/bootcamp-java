@@ -1,0 +1,44 @@
+ INSERT INTO almacenes (codigo, lugar, capacidad) VALUES
+    (1, 'Almacén A', 'Tarragona', 500),
+    (2, 'Almacén B', 'Barcelona', 3000),
+    (3, 'Almacén C', 'Girona', 800),
+    (4, 'Almacén D', 'Lleida', 500),
+    (5, 'Almacén E', 'Valencia', 1000),
+    (6, 'Almacén F', 'Sabadell', 800),
+    (7, 'Almacén G', 'Pobla del Segur', 200),
+    (8, 'Almacén H', 'Banyoles', 300),
+    (9, 'Almacén I', 'Sitges', 712),
+    (10, 'Almacén J', 'Vielha', 767);
+    
+INSERT INTO cajas (num_referencia, contenido, valor, almacen) VALUES
+    ('Al01', 'Televisores', 720, 1),
+    ('Al002', 'Ropa', 250, 2),
+    ('Al03', 'Ordenadores', 1500, 3),
+    ('Al04', 'Lego', 200, 4),
+    ('Al05', 'Relojes', 90, 5),
+    ('Al06', 'Teléfonos', 1000, 6),
+    ('Al07', 'Auriculares', 130, 7),
+    ('Al08', 'Ropa deportiva', 95, 8),
+    ('Al09', 'Utensilios de escritura', 40, 9),
+    ('Al10', 'Libros', 50, 10);    
+
+-- 3.1 Obtener todos los almacenes.
+SELECT * FROM almacenes;
+
+-- 3.2 Obtener todas las cajas cuyo contenido tenga un valor superior a 150€.
+SELECT * FROM cajas WHERE valor > 150;
+
+-- 3.3 Obtener los tipos de contenido de las cajas.
+SELECT contenido FROM cajas;
+
+-- 3.4 Obtener el valor medio de todas las cajas.
+SELECT AVG(valor) AS valor_medio FROM cajas;
+
+-- 3.5 Obtener el valor medio de las cajas de cada almacen.  
+SELECT AVG(precio) AS valor_medio_almacen FROM almacenes;    
+
+-- 3.6 Obtener los códigos de los almacenes en los cuales el valor medio de las cajas sea superior a 150€.
+SELECT almacen FROM cajas GROUP BY almacen HAVING AVG(valor) > 150;
+
+-- 3.7 Obtener el número de referencia de cada caja junto con el nombre de la ciudad en el que se encuenta. 
+SELECT cajas.num_referencia, almacenes.ciudad FROM cajas JOIN almacenes ON cajas.almacen = almacenes.codigo;
