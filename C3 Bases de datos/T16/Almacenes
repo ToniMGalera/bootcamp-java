@@ -1,4 +1,13 @@
- INSERT INTO almacenes (codigo, lugar, capacidad) VALUES
+-- Crear tabla de almacenes
+CREATE TABLE almacenes (
+    codigo INT PRIMARY KEY,
+    nombre VARCHAR(255),
+    lugar VARCHAR(255),
+    capacidad INT
+);
+
+-- Insertar datos en la tabla de almacenes
+INSERT INTO almacenes (codigo, nombre, lugar, capacidad) VALUES
     (1, 'Almacén A', 'Tarragona', 500),
     (2, 'Almacén B', 'Barcelona', 3000),
     (3, 'Almacén C', 'Girona', 800),
@@ -8,8 +17,20 @@
     (7, 'Almacén G', 'Pobla del Segur', 200),
     (8, 'Almacén H', 'Banyoles', 300),
     (9, 'Almacén I', 'Sitges', 712),
-    (10, 'Almacén J', 'Vielha', 767);
-    
+    (10, 'Almacén J', 'Vielha', 767),
+    (11, 'Almacén K', 'Bilbao', 5),
+    (12, 'Almacén L', 'Barcelona', 3);
+
+-- Crear tabla de cajas con clave externa
+CREATE TABLE cajas (
+    num_referencia VARCHAR(10) PRIMARY KEY,
+    contenido VARCHAR(255),
+    valor DECIMAL(10, 2),
+    almacen INT,
+    FOREIGN KEY (almacen) REFERENCES almacenes(codigo)
+);
+
+-- Insertar datos en la tabla de cajas
 INSERT INTO cajas (num_referencia, contenido, valor, almacen) VALUES
     ('Al01', 'Televisores', 720, 1),
     ('Al002', 'Ropa', 250, 2),
@@ -20,8 +41,10 @@ INSERT INTO cajas (num_referencia, contenido, valor, almacen) VALUES
     ('Al07', 'Auriculares', 130, 7),
     ('Al08', 'Ropa deportiva', 95, 8),
     ('Al09', 'Utensilios de escritura', 40, 9),
-    ('Al10', 'Libros', 50, 10);    
+    ('Al10', 'Libros', 50, 10),
+    ('H5RT', 'Papel', 200, 2);
 
+-- Consultas
 -- 3.1 Obtener todos los almacenes.
 SELECT * FROM almacenes;
 
@@ -29,16 +52,44 @@ SELECT * FROM almacenes;
 SELECT * FROM cajas WHERE valor > 150;
 
 -- 3.3 Obtener los tipos de contenido de las cajas.
-SELECT contenido FROM cajas;
+SELECT DISTINCT contenido FROM cajas;
 
 -- 3.4 Obtener el valor medio de todas las cajas.
 SELECT AVG(valor) AS valor_medio FROM cajas;
 
 -- 3.5 Obtener el valor medio de las cajas de cada almacen.  
-SELECT AVG(precio) AS valor_medio_almacen FROM almacenes;    
+SELECT c.almacen, AVG(cajas.valor) AS valor_medio_almacen 
+FROM cajas
+JOIN almacenes AS c ON c.codigo = cajas.almacen
+GROUP BY c.almacen;
 
 -- 3.6 Obtener los códigos de los almacenes en los cuales el valor medio de las cajas sea superior a 150€.
 SELECT almacen FROM cajas GROUP BY almacen HAVING AVG(valor) > 150;
 
 -- 3.7 Obtener el número de referencia de cada caja junto con el nombre de la ciudad en el que se encuenta. 
-SELECT cajas.num_referencia, almacenes.ciudad FROM cajas JOIN almacenes ON cajas.almacen = almacenes.codigo;
+SELECT c.num_referencia, a.lugar 
+FROM cajas AS c 
+JOIN almacenes AS a ON c.almacen = a.codigo;
+
+-- 3.8 Obtener el número de cajas que hay en cada almacén.
+SELECT almacen, COUNT(*) AS num_cajas FROM cajas GROUP BY almacen;
+
+-- 3.9 Obtener los códigos de los almacenes que están saturados, es decir, donde el número de cajas es superior a la capacidad.
+SELECT almacen FROM cajas GROUP BY almacen HAVING COUNT(*) > (SELECT capacidad FROM almacenes WHERE almacenes.codigo = cajas.almacen);
+
+-- 3.10 y 3.11 -- Estas acciones se realizaron previamente durante la creación e inserción de datos.
+
+-- 3.12 Insertar una nueva caja con número de referencia 'H5RT', con contenido 'Papel', valor 200, situada en el almacén 2.
+INSERT INTO cajas (num_referencia, contenido, valor, almacen) VALUES ('H5RT', 'Papel', 200, 2);
+
+-- 3.13 Rebajar el valor de todas las cajas un 15%.
+UPDATE cajas SET valor = valor * 0.85;
+
+-- 3.14 Rebajar un 20% el valor de todas las cajas cuyo valor sea superior al valor medio de todas las cajas.
+UPDATE cajas SET valor = valor * 0.8 WHERE valor > (SELECT AVG(valor) FROM cajas); 
+
+-- 3.15 Eliminar todas las cajas cuyo valor sea inferior a 100€.
+DELETE FROM cajas WHERE valor < 100;
+
+-- 3.16 Vaciar el contenido de los almacenes que están saturados. 
+DELETE FROM almacenes WHERE codigo IN (SELECT almacen FROM cajas GROUP BY almacen HAVING COUNT(*) > (SELECT capacidad FROM almacenes WHERE almacenes.codigo = cajas.almacen));
