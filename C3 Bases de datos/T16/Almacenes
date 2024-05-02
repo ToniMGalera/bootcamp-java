@@ -58,10 +58,10 @@ SELECT DISTINCT contenido FROM cajas;
 SELECT AVG(valor) AS valor_medio FROM cajas;
 
 -- 3.5 Obtener el valor medio de las cajas de cada almacen.  
-SELECT c.almacen, AVG(cajas.valor) AS valor_medio_almacen 
+SELECT c.codigo AS almacen, AVG(cajas.valor) AS valor_medio_almacen
 FROM cajas
 JOIN almacenes AS c ON c.codigo = cajas.almacen
-GROUP BY c.almacen;
+GROUP BY c.codigo;
 
 -- 3.6 Obtener los códigos de los almacenes en los cuales el valor medio de las cajas sea superior a 150€.
 SELECT almacen FROM cajas GROUP BY almacen HAVING AVG(valor) > 150;
@@ -93,3 +93,9 @@ DELETE FROM cajas WHERE valor < 100;
 
 -- 3.16 Vaciar el contenido de los almacenes que están saturados. 
 DELETE FROM almacenes WHERE codigo IN (SELECT almacen FROM cajas GROUP BY almacen HAVING COUNT(*) > (SELECT capacidad FROM almacenes WHERE almacenes.codigo = cajas.almacen));
+
+UPDATE cajas SET contenido = NULL WHERE almacen IN (SELECT almacen FROM almacenes WHERE (SELECT COUNT(*) FROM cajas WHERE cajas.almacen = almacenes.almacen) > capacidad);
+
+
+2.19
+ 3.16
