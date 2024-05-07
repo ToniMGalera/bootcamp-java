@@ -1,0 +1,66 @@
+use biblioteca
+
+// Insertar documento 1
+db.libros.insertOne({
+    "Titulo": "La muerte entre nostros",
+    "Fecha_lanzamiento": "2024",
+    "Autor": "Veronica Rus",
+    "Categoria": "Novela de misterio",
+    "Editorial": "Ediciones Atlantis",
+    "Idioma": "Castellano",
+    "Páginas": 337,
+    "Descripción": "Dante Edevane es un ángel, pero no uno cualquiera. Es un ángel de la muerte. O como muchos lo llaman, la parca. Capaz de ver los últimos segundos de vida de las personas tal y como ocurren.",
+    "Portada": "https://www.edicionesatlantis.com/wp-content/uploads/2024/04/Portada-La-muerte-entre-nosotros-744x1030.jpg"
+});
+
+// Insertar documento 2
+db.libros.insertOne({
+    "Titulo": "Canción de hielo y fuego: Juego de Tronos",
+    "Fecha_lanzamiento": "1996",
+    "Autor": "George R.R. Martin",
+    "Categoria": "Fantasía medieval",
+    "Editorial": "Gigamesh",
+    "Idioma": "Ingles",
+    "Páginas": 800,
+    "Descripción": "Tras el largo verano, el invierno se acerca a los Siete Reinos. Lord Eddars Stark, señor de Invernalia, deja sus dominios para unirse a la corte del rey Robert Baratheon el Usurpador, hombre díscolo y otrora guerrero audaz cuyas mayores aficiones son comer y beber.",
+    "Portada": "https://imag.lecturalia.com/img/libro/juego-de-tronos-cancion-de-hielo-y-fuego-i-17387.jpg"
+});
+
+// Insertar documento 3
+db.libros.insertOne({
+    "Titulo": "El señor de los anillos: La comunidad del anillo",
+    "Fecha_lanzamiento": "1954",
+    "Autor": "J.R.R. Tolkien",
+    "Categoria": "Novela fantasia heroica",
+    "Editorial": "Booket",
+    "Idioma": "Ingles",
+    "Páginas": 576,
+    "Descripción": "En la adormecida e idílica Comarca, un joven hobbit recibe un encargo: custodiar el Anillo Único y emprender el viaje para su destrucción en la Grieta del Destino. ",
+    "Portada": "https://m.media-amazon.com/images/I/816QLZKwmIL._AC_UF894,1000_QL80_.jpg"
+});
+
+// Insertar documento 4
+db.libros.insertOne({
+    "Titulo": "Harry Potter y la piedra filosofal",
+    "Fecha_lanzamiento": "1997",
+    "Autor": "J.K. Rowling",
+    "Categoria": "Fantasía",
+    "Editorial": "Bloomsbury Publishing",
+    "Idioma": "Inglés",
+    "Páginas": 223,
+    "Descripción": "Harry Potter y la piedra filosofal es el primer libro de la serie de Harry Potter de J.K. Rowling. Narra las aventuras de Harry Potter, un niño mago que descubre su verdadera identidad en su undécimo cumpleaños. La historia sigue su viaje en el mundo mágico mientras asiste a la escuela de magia Hogwarts.",
+    "Portada": "https://upload.wikimedia.org/wikipedia/en/b/bf/Harry_Potter_and_the_Philosopher%27s_Stone_Jacket.jpg"
+});
+
+// Insertar documento 5
+db.libros.insertOne({
+    "Titulo": "Manifiesto del partido comunista",
+    "Fecha_lanzamiento": "1848",
+    "Autor": "Karl Marx y Friedrich Engels",
+    "Categoria": "Política",
+    "Editorial": "Alianza Editorial",
+    "Idioma": "Inglés",
+    "Páginas": 56,
+    "Descripción": "El Manifiesto del Partido Comunista se divide en un preámbulo y cuatro capítulos: «I. Burgueses y proletarios», «II. Proletarios y comunistas», «III. Literatura socialista y comunista» y «IV. Actitud de los comunistas ante los otros partidos de la oposición».",
+    "Portada": "https://m.media-amazon.com/images/I/517WZwO7O5L._AC_UF1000,1000_QL80_.jpg"
+});
