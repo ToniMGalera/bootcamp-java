@@ -169,3 +169,122 @@ public class MiniCalculadora extends JFrame {
         new MiniCalculadora();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class MiniCalculadora extends JFrame {
+
+    private JTextField campoOperando1;
+    private JTextField campoOperando2;
+    private JTextField campoResultado;
+    private JLabel labelOperando1;
+    private JLabel labelOperando2;
+    private JLabel labelResultado;
+    private JButton botonOperacion;
+    private JButton botonSalir;
+    private JButton botonAbout;
+
+    public MiniCalculadora() {
+        setLayout(new FlowLayout());
+
+        // Creamos los campos de texto
+        campoOperando1 = new JTextField(10);
+        campoOperando2 = new JTextField(10);
+        campoResultado = new JTextField(10);
+
+        // Creamos los labels
+        labelOperando1 = new JLabel("Operando 1:");
+        labelOperando2 = new JLabel("Operando 2:");
+        labelResultado = new JLabel("Resultado:");
+
+        // Creamos el botón de operación
+        botonOperacion = new JButton("Calcular");
+        
+        // Creamos los botones de salir y about
+        botonSalir = new JButton("Salir");
+        botonAbout = new JButton("About");
+
+        // Agregamos los componentes a la ventana
+        add(labelOperando1);
+        add(campoOperando1);
+        add(labelOperando2);
+        add(campoOperando2);
+        add(labelResultado);
+        add(campoResultado);
+        add(botonOperacion);
+        add(botonSalir);
+        add(botonAbout);
+
+        // Evento para calcular
+        botonOperacion.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Obtener los operandos y la operación
+                double operando1 = Double.parseDouble(campoOperando1.getText());
+                double operando2 = Double.parseDouble(campoOperando2.getText());
+                String operacion = JOptionPane.showInputDialog("Ingrese la operación (+, -, *, /):");
+
+                // Calcular el resultado
+                double resultado = 0;
+                switch (operacion) {
+                    case "+":
+                        resultado = operando1 + operando2;
+                        break;
+                    case "-":
+                        resultado = operando1 - operando2;
+                        break;
+                    case "*":
+                        resultado = operando1 * operando2;
+                        break;
+                    case "/":
+                        resultado = operando1 / operando2;
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Operación no válida.");
+                        return;
+                }
+                
+                // Mostrar el resultado
+                campoResultado.setText(String.valueOf(resultado));
+            }
+        });
+
+        // Evento para salir
+        botonSalir.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        // Evento para about
+        botonAbout.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "About MiniCalculadora");
+            }
+        });
+
+        // Tamaño y título de la ventana
+        setSize(300, 200);
+        setTitle("MiniCalculadora");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new MiniCalculadora();
+    }
+}
