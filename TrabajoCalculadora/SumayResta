@@ -1,0 +1,171 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MiniCalculadora extends JFrame implements ActionListener {
+    private JTextField txtOperando1, txtOperando2, txtResultado;
+    private JButton btnSuma, btnResta;
+
+    public MiniCalculadora() {
+        setTitle("MiniCalculadora");
+        setSize(300, 150);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(new GridLayout(4, 2));
+
+        JLabel lblOperando1 = new JLabel("Operando 1:");
+        add(lblOperando1);
+        txtOperando1 = new JTextField();
+        add(txtOperando1);
+
+        JLabel lblOperando2 = new JLabel("Operando 2:");
+        add(lblOperando2);
+        txtOperando2 = new JTextField();
+        add(txtOperando2);
+
+        JLabel lblResultado = new JLabel("Resultado:");
+        add(lblResultado);
+        txtResultado = new JTextField();
+        txtResultado.setEditable(false);
+        add(txtResultado);
+
+        btnSuma = new JButton("Suma");
+        btnSuma.addActionListener(this);
+        add(btnSuma);
+
+        btnResta = new JButton("Resta");
+        btnResta.addActionListener(this);
+        add(btnResta);
+
+        setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btnSuma) {
+            double operando1 = Double.parseDouble(txtOperando1.getText());
+            double operando2 = Double.parseDouble(txtOperando2.getText());
+            double resultado = operando1 + operando2;
+            txtResultado.setText(Double.toString(resultado));
+        } else if (e.getSource() == btnResta) {
+            double operando1 = Double.parseDouble(txtOperando1.getText());
+            double operando2 = Double.parseDouble(txtOperando2.getText());
+            double resultado = operando1 - operando2;
+            txtResultado.setText(Double.toString(resultado));
+        }
+    }
+
+    public static void main(String[] args) {
+        new MiniCalculadora();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class MiniCalculadora extends JFrame {
+
+    private JTextField campoOperando1;
+    private JTextField campoOperando2;
+    private JTextField campoResultado;
+    private JLabel labelOperando1;
+    private JLabel labelOperando2;
+    private JLabel labelResultado;
+    private JButton botonSuma;
+    private JButton botonResta;
+    private JButton botonMultiplicacion;
+    private JButton botonDivision;
+    private JButton botonSalir;
+    private JButton botonAbout;
+
+    public MiniCalculadora() {
+        setLayout(new FlowLayout());
+
+        // Creamos los campos de texto
+        campoOperando1 = new JTextField(10);
+        campoOperando2 = new JTextField(10);
+        campoResultado = new JTextField(10);
+
+        // Creamos los labels
+        labelOperando1 = new JLabel("Operando 1:");
+        labelOperando2 = new JLabel("Operando 2:");
+        labelResultado = new JLabel("Resultado:");
+
+        // Creamos los botones
+        botonSuma = new JButton("+");
+        botonResta = new JButton("-");
+        botonMultiplicacion = new JButton("*");
+        botonDivision = new JButton("/");
+        botonSalir = new JButton("Salir");
+        botonAbout = new JButton("About");
+
+        // Agregamos los componentes a la ventana
+        add(labelOperando1);
+        add(campoOperando1);
+        add(labelOperando2);
+        add(campoOperando2);
+        add(labelResultado);
+        add(campoResultado);
+        add(botonSuma);
+        add(botonResta);
+        add(botonMultiplicacion);
+        add(botonDivision);
+        add(botonSalir);
+        add(botonAbout);
+
+        // Eventos para los botones
+        botonSuma.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                double operando1 = Double.parseDouble(campoOperando1.getText());
+                double operando2 = Double.parseDouble(campoOperando2.getText());
+                double resultado = operando1 + operando2;
+                campoResultado.setText(String.valueOf(resultado));
+            }
+        });
+
+        botonResta.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                double operando1 = Double.parseDouble(campoOperando1.getText());
+                double operando2 = Double.parseDouble(campoOperando2.getText());
+                double resultado = operando1 - operando2;
+                campoResultado.setText(String.valueOf(resultado));
+            }
+        });
+
+        // Evento para salir
+        botonSalir.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        // Evento para about
+        botonAbout.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "About MiniCalculadora");
+            }
+        });
+
+        // Tamaño y título de la ventana
+        setSize(300, 200);
+        setTitle("MiniCalculadora");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new MiniCalculadora();
+    }
+}
