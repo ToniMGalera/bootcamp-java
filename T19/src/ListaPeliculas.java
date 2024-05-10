@@ -45,4 +45,3 @@ public class ListaPeliculas extends JFrame implements ActionListener {
         });
     }
 }
-
