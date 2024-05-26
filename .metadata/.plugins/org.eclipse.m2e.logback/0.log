@@ -467,3 +467,6 @@
 2024-05-21 11:04:15,823 [Worker-60: Launching App] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Proyecto.Maven.Tareas:ProyectosMaven:0.0.1-SNAPSHOT @ C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\pom.xml.
 2024-05-21 11:04:16,551 [Worker-60: Launching App] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\main\resources
 2024-05-21 11:04:16,555 [Worker-60: Launching App] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\test\resources
+2024-05-23 09:14:13,913 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-05-24 09:49:46,627 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-05-26 21:19:12,200 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
