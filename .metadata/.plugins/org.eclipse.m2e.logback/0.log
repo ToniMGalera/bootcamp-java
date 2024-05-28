@@ -470,3 +470,18 @@
 2024-05-23 09:14:13,913 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2024-05-24 09:49:46,627 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2024-05-26 21:19:12,200 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-05-27 09:13:33,368 [Worker-10: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-05-27 23:15:19,853 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-05-27 23:21:05,120 [Worker-3: Launching ejercicio1] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\main\resources
+2024-05-27 23:21:05,129 [Worker-3: Launching ejercicio1] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\test\resources
+2024-05-27 23:22:10,736 [Worker-16: Launching ejercicio2] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\main\resources
+2024-05-27 23:22:10,739 [Worker-16: Launching ejercicio2] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\test\resources
+2024-05-27 23:22:45,104 [Worker-47: Launching ejercicio2] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\main\resources
+2024-05-27 23:22:45,108 [Worker-47: Launching ejercicio2] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\test\resources
+2024-05-27 23:24:24,848 [Worker-48: Building Workspace] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\main\resources
+2024-05-27 23:24:24,850 [Worker-48: Building Workspace] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\test\resources
+2024-05-27 23:24:27,862 [Worker-16: Launching ejercicio3 (1)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\main\resources
+2024-05-27 23:24:27,864 [Worker-16: Launching ejercicio3 (1)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\test\resources
+2024-05-27 23:25:57,487 [Worker-50: Launching ejercicio4 (1)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\main\resources
+2024-05-27 23:25:57,488 [Worker-50: Launching ejercicio4 (1)] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Toni\Desktop\bootcamp-java\ProyectosMaven\src\test\resources
+2024-05-28 09:39:53,664 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
