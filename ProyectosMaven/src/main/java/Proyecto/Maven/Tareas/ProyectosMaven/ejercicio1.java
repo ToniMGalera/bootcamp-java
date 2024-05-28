@@ -15,23 +15,22 @@ package Proyecto.Maven.Tareas.ProyectosMaven;
 
 			setTitle("-- Ventana ejercicio 1 --");
 			setSize(400, 300);
-			setLocationRelativeTo(null); // Centrar la ventana en la pantalla
-			setDefaultCloseOperation(EXIT_ON_CLOSE); //Al cerrar ventana, se finaliza el programa
+			setLocationRelativeTo(null); // Centrar 
+			setDefaultCloseOperation(EXIT_ON_CLOSE); //Finaliza el programa
 
-			//Para poder centrar las cosas
+			//Para centrar
 			contentPane.setLayout(new FlowLayout());
 			setContentPane(contentPane);
 
-			campo = new JLabel("-- ¡Hi! --");
+			campo = new JLabel("-- ¡Holi catalunyi! --");
 			contentPane.add(campo, BorderLayout.CENTER);
 
-			//Slider para cambiar el tamaño de la etiqueta
+			//Cambio de tamaño de etiqueta
 			slider = new JSlider(JSlider.HORIZONTAL, 10, 100, 20);
 			slider.setMajorTickSpacing(10);
-//			slider.setPaintTicks(true);
-//			slider.setPaintLabels(true);
 
-			//Accion para cambiar el tamaño de la etiqueta
+
+			//Cambio de tamaño de etiqueta
 			slider.addChangeListener(new ChangeListener() {
 				public void stateChanged(ChangeEvent e) {
 					int size = slider.getValue();

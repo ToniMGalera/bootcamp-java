@@ -15,10 +15,10 @@ package Proyecto.Maven.Tareas.ProyectosMaven;
 		public ejercicio2() {
 			setTitle("-- Ventana ejercicio 2 --");
 			setSize(400, 300);
-			setLocationRelativeTo(null); // Centrar la ventana en la pantalla
-			setDefaultCloseOperation(EXIT_ON_CLOSE); // Al cerrar ventana, se finaliza el programa
+			setLocationRelativeTo(null); // Centrar
+			setDefaultCloseOperation(EXIT_ON_CLOSE); // Finaliza el programa
 
-			// Para poder centrar las cosas
+			// Para centrar
 			contentPane.setLayout(new FlowLayout());
 			setContentPane(contentPane);
 
@@ -35,14 +35,14 @@ package Proyecto.Maven.Tareas.ProyectosMaven;
 
 			boton1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					texto.setText("Has pulsado: Boton 1");
+					texto.setText("Pulsaste el boton 1");
 				}
 			});
 
 			boton2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					
-					texto.setText("Has pulsado: Boton 2");
+					texto.setText("Pulsaste el boton 2");
 				}
 			});
 

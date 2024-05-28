@@ -10,12 +10,12 @@ package Proyecto.Maven.Tareas.ProyectosMaven;
 		private JButton boton;
 
 		public ejercicio4() {
-			setTitle("Registro de eventos");
+			setTitle("Registro");
 			setSize(400, 300);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setLocationRelativeTo(null);
 
-			label = new JLabel("Eventos de la ventana:");
+			label = new JLabel("Eventos ventana:");
 			textArea = new JTextArea();
 			textArea.setEditable(false);
 			boton = new JButton("Borrar");
@@ -30,37 +30,37 @@ package Proyecto.Maven.Tareas.ProyectosMaven;
 			addWindowListener(new WindowAdapter() {
 				@Override
 				public void windowOpened(WindowEvent e) {
-					logEvent("Ventana abierta");
+					logEvent("Abierta");
 				}
 
 				@Override
 				public void windowClosing(WindowEvent e) {
-					logEvent("Ventana cerrándose");
+					logEvent("Ccerrándose");
 				}
 
 				@Override
 				public void windowClosed(WindowEvent e) {
-					logEvent("Ventana cerrada");
+					logEvent("Cerrada");
 				}
 
 				@Override
 				public void windowIconified(WindowEvent e) {
-					logEvent("Ventana minimizada");
+					logEvent("Minimizada");
 				}
 
 				@Override
 				public void windowDeiconified(WindowEvent e) {
-					logEvent("Ventana restaurada");
+					logEvent("Restaurada");
 				}
 
 				@Override
 				public void windowActivated(WindowEvent e) {
-					logEvent("Ventana activada");
+					logEvent("Activada");
 				}
 
 				@Override
 				public void windowDeactivated(WindowEvent e) {
-					logEvent("Ventana desactivada");
+					logEvent("Desactivada");
 				}
 			});
 
@@ -68,7 +68,7 @@ package Proyecto.Maven.Tareas.ProyectosMaven;
 			addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					logEvent("Ratón clicado en la posición (" + e.getX() + ", " + e.getY() + ")");
+					logEvent("Ratón clicado en posición (" + e.getX() + ", " + e.getY() + ")");
 				}
 			});
 

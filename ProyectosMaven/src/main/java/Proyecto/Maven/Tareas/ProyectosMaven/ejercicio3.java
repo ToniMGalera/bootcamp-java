@@ -24,10 +24,10 @@ package Proyecto.Maven.Tareas.ProyectosMaven;
 			contentPane.setLayout(new FlowLayout());
 			setContentPane(contentPane);
 
-			texto1 = new JLabel("Boton 1: " + contador1 + " veces");
+			texto1 = new JLabel("Boton 1: " + contador1 + " cantidad de veces");
 			contentPane.add(texto1);
 
-			texto2 = new JLabel("Boton 2: " + contador2 + " veces");
+			texto2 = new JLabel("Boton 2: " + contador2 + " cantidad de veces");
 			contentPane.add(texto2);
 
 			boton1 = new JButton("Boton 1");
@@ -41,14 +41,14 @@ package Proyecto.Maven.Tareas.ProyectosMaven;
 			boton1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					contador1++;
-					texto1.setText("Boton 1: " + contador1 + " veces");// Hay que actualizar el label
+					texto1.setText("Boton 1: " + contador1 + " cantidad de veces");// Hay que actualizar el label
 				}
 			});
 
 			boton2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					contador2++;
-					texto2.setText("Boton 2: " + contador2 + " veces");
+					texto2.setText("Boton 2: " + contador2 + " cantidad de veces");
 				}
 			});
 		}
