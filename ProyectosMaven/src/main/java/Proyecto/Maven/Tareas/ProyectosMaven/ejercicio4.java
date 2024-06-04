@@ -35,7 +35,7 @@ package Proyecto.Maven.Tareas.ProyectosMaven;
 
 				@Override
 				public void windowClosing(WindowEvent e) {
-					logEvent("Ccerrándose");
+					logEvent("Cerrándose");
 				}
 
 				@Override
