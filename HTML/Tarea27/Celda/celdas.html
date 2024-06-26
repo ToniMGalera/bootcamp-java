@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 3px 3px 8px #aaa;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #98FB98; /* Green */
+            font-size: 1.5em;
+        }
+        .celda1 {
+            background-color: #98FB98; /* Green */
+        }
+        .celda2 {
+            background-color: #00FFFF; /* Cyan */
+        }
+        .celda3, .celda5, .celda8 {
+            background-color: #FFFFFF; /* White */
+            color: red;
+            font-weight: bold;
+        }
+        .celda4, .celda6 {
+            background-color: #FFB6C1; /* Pink */
+        }
+        .celda7 {
+            background-color: #FFFFFF; /* White */
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th colspan="4">TÍTULO DE LA TABLA</th>
+        </tr>
+        <tr>
+            <td colspan="2" class="celda1">CELDA 1</td>
+            <td colspan="2" class="celda1"></td>
+        </tr>
+        <tr>
+            <td rowspan="2" class="celda2">CELDA 2</td>
+            <td class="celda3">CELDA 3</td>
+            <td class="celda4" colspan="2">CELDA 4</td>
+        </tr>
+        <tr>
+            <td class="celda5">CELDA 5</td>
+            <td rowspan="2" class="celda6">CELDA 6</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="celda7">CELDA 7</td>
+            <td class="celda8">CELDA 8</td>
+        </tr>
+    </table>
+</body>
+</html>
