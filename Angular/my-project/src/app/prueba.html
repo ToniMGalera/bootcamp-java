@@ -1,0 +1,187 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy Boxes</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #191919;
+            color: #FFFFFF;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: #2C2C2C;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            color: #EC0909;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .navbar-nav .nav-link, .btn {
+            color: #FFFFFF;
+            border-radius: 50px;
+            margin: 0 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .navbar-nav .nav-link:hover, .btn:hover {
+            color: #EC0909;
+        }
+        .container-custom {
+            background-color: #191919;
+            padding: 20px;
+            margin-top: 70px;
+            color: #FFFFFF;
+            min-height: calc(100vh - 110px);
+        }
+        .intro-text {
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .box {
+            background-color: #2C2C2C;
+            color: #FFFFFF;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #4B4B4B;
+            position: relative;
+            margin: 10px 0;
+            height: 200px;
+            overflow: hidden;
+        }
+        .inner-content {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .inner-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        .highlight, .highlight-right {
+            background-color: #EC0909;
+            color: #FFFFFF;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .highlight {
+            left: 10px;
+        }
+        .highlight-right {
+            right: 10px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .row-custom {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .col-custom {
+            flex: 1;
+            margin: 10px;
+        }
+        .col-large {
+            flex: 2;
+        }
+        .image-column {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-column img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">JÖYBÖX</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Bundle</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+                <div class="ml-auto">
+                    <a class="btn btn-link nav-link" href="#">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-custom">
+        <div class="row mb-4">
+            <div class="col-md-8 mx-auto">
+                <h1>JOY BOXES</h1>
+                <p class="intro-text">
+                    Nuestros paquetes son colecciones de juegos, libros, software y mucho más por tiempo limitado. Paga lo que quieras por ellos y elige a dónde enviar el dinero, incluidas organizaciones benéficas. Muchos de los paquetes se ofrecen por tramos, con un precio inicial de tan solo 1 USD. ¡Cuanto más contribuyes, más obtienes! Cada poco tiempo añadimos nuevas Boxes donde encontrarás increíbles experiencias que deleitarán a todos los consumidores.
+                </p>
+            </div>
+        </div>
+        <div class="row row-custom">
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="inner-content">
+                        <img src="https://via.placeholder.com/300x200" alt="Image 2">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="inner-content">
+                        <img src="https://via.placeholder.com/300x200" alt="Image 3">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="inner-content">
+                        <img src="https://via.placeholder.com/300x200" alt="Image 4">
+                        <div class="highlight" onclick="scrollLeft(this)">&#9664;</div>
+                        <div class="highlight-right" onclick="scrollRight(this)">&#9654;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function scrollLeft(element) {
+            // Implementa la lógica de desplazamiento a la izquierda si es necesario
+            console.log('Scroll Izquierda');
+        }
+
+        function scrollRight(element) {
+            // Implementa la lógica de desplazamiento a la derecha si es necesario
+            console.log('Scroll Derecha');
+        }
+    </script>
+</body>
+</html>
