@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="joyBoxApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRATE-GOG Bundle</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1A1A1A;
+            color: #FFFFFF;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            background-color: #2C2C2C;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: #EC0909;
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+        }
+
+        .navbar-nav .nav-link,
+        .btn {
+            color: #FFFFFF;
+            border-radius: 20px;
+            margin: 0 5px;
+            padding: 5px 15px;
+            border: 1px solid transparent;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .btn:hover {
+            color: #EC0909;
+            border-color: #EC0909;
+        }
+
+        .container-custom {
+            background-color: #333333;
+            padding: 20px;
+            margin-top: 20px;
+            color: #FFFFFF;
+        }
+
+        .bundle-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .bundle-header h1 {
+            font-size: 3em;
+        }
+
+        .bundle-description p {
+            font-size: 1.2em;
+        }
+
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-buttons .btn {
+            margin: 5px;
+        }
+
+        .game-card {
+            background-color: #444444;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .game-card img {
+            border-bottom: 2px solid #333333;
+        }
+
+        .game-card-body {
+            padding: 15px;
+        }
+
+        .pricing-options {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .pricing-options .btn {
+            margin: 5px;
+        }
+
+        .purchase-button {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .purchase-button .btn {
+            font-size: 1.5em;
+            padding: 10px 30px;
+        }
+
+        .donation-info {
+            background-color: #2C2C2C;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .donation-info h3 {
+            font-size: 1.5em;
+        }
+
+        .countdown {
+            text-align: center;
+            background-color: #333333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .support-info {
+            background-color: #2C2C2C;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .toggle-button {
+            cursor: pointer;
+            text-align: center;
+            color: #EC0909;
+            margin: 10px 0;
+        }
+
+        .toggle-button .arrow {
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .hidden-text {
+            display: none;
+        }
+
+        .btn-primary {
+            background-color: #EC0909;
+            border-color: #EC0909;
+        }
+
+        .btn-primary:hover {
+            background-color: #FFFFFF;
+            color: #EC0909;
+            border-color: #EC0909;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">JÖYBÖX</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="boxes.html">Boxes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-link nav-link" href="#">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-link nav-link" href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a>
+                    
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container container-custom">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="bundle-header">
+                    <h1>STRATE-GOG Bundle</h1>
+                    <p>Flex your noggin, test your tactical acumen, and sharpen your decision-making skills with this bundle, packed with some of the best strategy games in recent years.</p>
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="btn btn-secondary active" onclick="showBundle('complete')">Box completo</button>
+                    <button class="btn btn-secondary" onclick="showBundle('three')">Box de 3 productos</button>
+                    <button class="btn btn-secondary" onclick="showBundle('basic')">Box básico</button>
+                </div>
+
+                <div class="row" id="games-list">
+                    <div class="col-md-6 game-item" data-price="10">
+                        <div class="card game-card">
+                            <img src="/mnt/data/image.png" class="card-img-top" alt="Railgrade">
+                            <div class="card-body game-card-body">
+                                <h5 class="card-title">Railgrade</h5>
+                                <p class="card-text">3.5/5 on GOG</p>
+                                <p class="card-text">Price: 10 €</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 game-item" data-price="20">
+                        <div class="card game-card">
+                            <img src="/mnt/data/image.png" class="card-img-top" alt="Expeditions: Rome">
+                            <div class="card-body game-card-body">
+                                <h5 class="card-title">Expeditions: Rome</h5>
+                                <p class="card-text">3.8/5 on GOG</p>
+                                <p class="card-text">Price: 20 €</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 game-item" data-price="30">
+                        <div class="card game-card">
+                            <img src="/mnt/data/image.png" class="card-img-top" alt="Showgunners">
+                            <div class="card-body game-card-body">
+                                <h5 class="card-title">Showgunners</h5>
+                                <p class="card-text">4.4/5 on GOG</p>
+                                <p class="card-text">Price: 30 €</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 game-item" data-price="15">
+                        <div class="card game-card">
+                            <img src="/mnt/data/image.png" class="card-img-top" alt="Field of Glory II: Medieval">
+                            <div class="card-body game-card-body">
+                                <h5 class="card-title">Field of Glory II: Medieval</h5>
+                                <p class="card-text">Price: 15 €</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 game-item" data-price="25">
+                        <div class="card game-card">
+                            <img src="/mnt/data/image.png" class="card-img-top" alt="Hard West II">
+                            <div class="card-body game-card-body">
+                                <h5 class="card-title">Hard West II</h5>
+                                <p class="card-text">Price: 25 €</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 game-item" data-price="35">
+                        <div class="card game-card">
+                            <img src="/mnt/data/image.png" class="card-img-top" alt="Spellforce III: Reforced">
+                            <div class="card-body game-card-body">
+                                <h5 class="card-title">Spellforce III: Reforced</h5>
+                                <p class="card-text">Price: 35 €</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="pricing-options">
+                    <button class="btn btn-primary filter-price" data-price="9.35">9,35 €</button>
+                    <button class="btn btn-primary filter-price" data-price="14.03">14,03 €</button>
+                    <button class="btn btn-primary filter-price" data-price="16.84">16,84 €</button>
+                    <button class="btn btn-primary filter-price" data-price="25">25 €</button>
+                    <button class="btn btn-primary filter-price" data-price="30">30 €</button>
+                    <button class="btn btn-primary filter-price" data-price="35">35 €</button>
+                </div>
+
+                <div class="purchase-button">
+                    <button class="btn btn-success">Realizar pedido</button>
+                </div>
+
+                <div class="countdown">
+                    <h2 id="countdown-timer"></h2>
+                </div>
+
+                <div class="donation-info">
+                    <h3>DESTINAMOS UN PORCENTAJE DE LA COMPRA A LAS SIGUIENTES CAUSAS:</h3>
+                    <ul>
+                        <li>RESCATE Y ADOPCIÓN DE ANIMALES</li>
+                        <li>REFORESTACIÓN Y LIMPIEZA DE OCÉANOS</li>
+                        <li>APOYO A REFUGIADOS</li>
+                        <li>LUCHA CONTRA EL CÁNCER DE MAMA</li>
+                    </ul>
+                </div>
+
+                <div class="support-info">
+                    <p>¿Necesitas ayuda? Visita nuestra <a href="#">Página de Soporte</a> o contáctanos directamente. ¡Además, tu compra ayuda a apoyar a Xperience Studios!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        function countdown() {
+            var now = new Date();
+            var eventDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 8, now.getHours() + 11, now.getMinutes() + 32);
+
+            var currentTime = now.getTime();
+            var eventTime = eventDate.getTime();
+
+            var remTime = eventTime - currentTime;
+
+            var s = Math.floor(remTime / 1000);
+            var m = Math.floor(s / 60);
+            var h = Math.floor(m / 60);
+            var d = Math.floor(h / 24);
+
+            h %= 24;
+            m %= 60;
+            s %= 60;
+
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+
+            document.getElementById("countdown-timer").textContent = d + " días: " + h + " horas: " + m + " minutos";
+            setTimeout(countdown, 1000);
+        }
+
+        countdown();
+
+        function showBundle(type) {
+            var gameItems = document.querySelectorAll('.game-item');
+            var sortedItems = Array.from(gameItems).sort(function (a, b) {
+                return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+            });
+
+            gameItems.forEach(function (item) {
+                item.style.display = 'none';
+            });
+
+            if (type === 'complete') {
+                sortedItems.slice(0, 6).forEach(function (item) {
+                    item.style.display = 'block';
+                });
+            } else if (type === 'three') {
+                sortedItems.slice(0, 3).forEach(function (item) {
+                    item.style.display = 'block';
+                });
+            } else if (type === 'basic') {
+                sortedItems.slice(0, 1).forEach(function (item) {
+                    item.style.display = 'block';
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var priceButtons = document.querySelectorAll('.filter-price');
+
+            priceButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var price = parseFloat(button.getAttribute('data-price'));
+
+                    var gameItems = document.querySelectorAll('.game-item');
+                    gameItems.forEach(function (item) {
+                        var itemPrice = parseFloat(item.getAttribute('data-price'));
+                        if (itemPrice <= price) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

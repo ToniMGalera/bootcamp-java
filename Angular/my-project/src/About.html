@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joy Boxes</title>
+    <title>About</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <style>
@@ -118,7 +118,7 @@
                         <a class="nav-link" href="boxes.html">Boxes</a> <!-- Redirigir a boxes.html -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="About.html">About</a> <!-- Redirigir a About.html -->
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -136,43 +136,84 @@
     <div class="container-custom">
         <div class="row mb-4 content-wrapper">
             <div class="col-md-6">
-                <h1>JOY BOXES</h1>
+                <h1>About</h1>
                 <p class="intro-text">
-                    Nuestros paquetes son colecciones de juegos, libros, software y mucho más por tiempo limitado. Paga lo que quieras por ellos y elige a dónde enviar el dinero, incluidas organizaciones benéficas. Muchos de los paquetes se ofrecen por tramos, con un precio inicial de tan solo 1 USD. ¡Cuanto más contribuyes, más obtienes!
+                    Vende juegos, libros electrónicos, software y otros contenidos digitales. Nuestra misión es apoyar causas benéficas mientras proporcionamos contenidos alucinantes a los clientes a precios asequibles. 
                 </p>
-            </div>
-            <div class="col-md-6">
                 <div class="main-image-box">
                     <div class="inner-content">
-                        <img src="assets/img/assassins_creed_shadows.jpg" alt="Image 1">
+                        <img src="ImgGame/Abzü.webp" alt="Image 1" class="lateral-image">
+                        <style>
+                            .center-title {
+                                text-align: left;
+                            }
+                            .lateral-image {
+                                float: right; /* Cambia a right si prefieres que la imagen esté a la derecha */
+                                
+                            }
+                        </style>
                     </div>
                 </div>
+                
             </div>
+        </div>
+        <div class="lo-forman">
+            <h3 class="center-title">Quienes somos</h3>
+            <style>
+                .center-title {
+                    text-align: center;
+                }
+                
+            </style>
+            <p class="intro-text">
+                Las mentes de esta web: 
+            </p>
         </div>
         <div class="row content-wrapper">
             <div class="col-md-4 position-relative">
                 <div class="box">
                     <div class="inner-content">
-                        <img id="image2" src="assets/img/mando1200x675.jpg" alt="Image 2">
+                        <img id="image2" src="ImgGame/BioShock.webp" alt="Image 2">
                     </div>
                 </div>
-                <div class="highlight" onclick="changeImages('left')"></div>
+                    
+                
+                <p class="center-title">Diego</p>
+                <p>Info Diego</p>
+                
             </div>
             <div class="col-md-4">
                 <div class="box">
                     <div class="inner-content">
-                        <img id="image3" src="assets/img/mandops.jpg" alt="Image 3">
+                        <img id="image3" src="ImgGame/Another Crab's Treasure.webp" alt="Image 3">
                     </div>
-                </div>
+                </div><p class="center-title">Toni</p>
+                <p>Info Toni</p>
             </div>
             <div class="col-md-4 position-relative">
                 <div class="box">
                     <div class="inner-content">
-                        <img id="image4" src="assets/img/cozy-vr-games-1200x675.jpg" alt="Image 4">
+                        <img id="image4" src="ImgGame/Coffe Talk.webp" alt="Image 4">
                     </div>
-                </div>
-                <div class="highlight-right" onclick="changeImages('right')"></div>
+                    
+                </div><p class="center-title">Laia</p>
+                <p>Info Laia</p>
+                
             </div>
+                
+            <div class="funcion">
+                <h3 class="center-title"> Como funciona</h3>
+                <style>
+                    .center-title {
+                        text-align: center;
+                    }
+                    
+                </style>
+                <p class="intro-text">
+                    Cuando compras un paquete, puedes elegir el precio que deseas pagar. Con cada tipo de producto que vendemos se contribuye con una parte de las ganancias a organizaciones benéficas. 
+                </p>
+            </div>
+            
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
@@ -180,9 +221,9 @@
         var app = angular.module('joyBoxApp', []);
 
         var imageSets = [
-            ["assets/img/mando1200x675.jpg", "assets/img/mandops.jpg", "assets/img/cozy-vr-games-1200x675.jpg"],
-            ["assets/img/Best-Games-300x200.jpg", "assets/img/bosque.jpg", "assets/img/cgl.jpg"],
-            ["assets/img/energy.jpg", "assets/img/laboratorio.jpg", "assets/img/NAVARRA.jpg"]
+            ["ImgGame/BioShock.webp", "ImgGame/Another Crab's Treasure.webp", "ImgGame/Coffe Talk.webp"],
+            ["ImgGame/BioShock.webp", "ImgGame/Another Crab's Treasure.webp", "ImgGame/Coffe Talk.webp"],
+            ["ImgGame/BioShock.webp", "ImgGame/Another Crab's Treasure.webp", "ImgGame/Coffe Talk.webp"]
         ];
 
         app.controller('MainController', function($scope) {

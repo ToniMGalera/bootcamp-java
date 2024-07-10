@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="joyBoxApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compra - Joy Boxes</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #6A6A6A;
+            color: #FFFFFF;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            background-color: #2C2C2C;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            color: #EC0909;
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+        }
+
+        .navbar-nav .nav-link,
+        .btn {
+            color: #FFFFFF;
+            border-radius: 20px;
+            margin: 0 5px;
+            padding: 5px 15px;
+            border: 1px solid transparent;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .btn:hover {
+            color: #EC0909;
+            border-color: #EC0909;
+        }
+
+        .container-custom {
+            background-color: #4B4B4B;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-custom {
+            background-color: #4B4B4B;
+            color: #FFFFFF;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .table-custom th,
+        .table-custom td {
+            border: none;
+            vertical-align: middle;
+        }
+
+        .table-custom thead th {
+            background-color: #EC0909;
+            color: #FFFFFF;
+            border: none;
+        }
+
+        .table-custom tbody tr:hover {
+            background-color: #656565;
+        }
+
+        .delete-btn {
+            color: #EC0909;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            text-decoration: underline;
+        }
+
+        .checkout-btn {
+            background-color: #EC0909;
+            border-color: #EC0909;
+            color: #FFFFFF;
+            font-weight: bold;
+            border-radius: 20px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            background-color: #FF0A29;
+            border-color: #FF0A29;
+        }
+
+        .empty-cart-msg {
+            text-align: center;
+            margin-top: 50px;
+            display: none;
+        }
+
+        .product-img {
+            max-width: 100px;
+            max-height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .quantity-input {
+            width: 60px;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin: 0 5px;
+            color: #333;
+        }
+
+        .quantity-input:focus {
+            outline: none;
+            border-color: #EC0909;
+            box-shadow: 0 0 5px rgba(236, 9, 9, 0.5);
+        }
+    </style>
+</head>
+
+<body ng-controller="MainController">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">JÖYBÖX</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="boxes.html">Boxes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-link nav-link" href="#">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-link nav-link" href="carrito.html"><i class="fas fa-shopping-cart"></i>
+                            Carrito</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="container-custom">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="mb-4">Carrito de Compra</h2>
+                    <div class="table-responsive">
+                        <table id="cartTable" class="table table-custom">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Subtotal</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Ejemplo de productos en el carrito -->
+                                <tr>
+                                    <td>
+                                        <img src="https://via.placeholder.com/150" alt="Producto 1" class="product-img">
+                                        <span class="ml-2">Assassin's Creed: Shadows</span>
+                                    </td>
+                                    <td>Juego de aventuras muy emocionante y lleno de acción.</td>
+                                    <td>$10.00</td>
+                                    <td>
+                                        <input type="number" class="form-control quantity-input" value="1" min="1">
+                                    </td>
+                                    <td>$10.00</td>
+                                    <td><button class="btn btn-link delete-btn">Eliminar</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://via.placeholder.com/150" alt="Producto 2" class="product-img">
+                                        <span class="ml-2">Cozy VR Games</span>
+                                    </td>
+                                    <td>Colección de juegos VR que te harán sentir inmerso en mundos virtuales
+                                        impresionantes.</td>
+                                    <td>$15.00</td>
+                                    <td>
+                                        <input type="number" class="form-control quantity-input" value="2" min="1">
+                                    </td>
+                                    <td>$30.00</td>
+                                    <td><button class="btn btn-link delete-btn">Eliminar</button></td>
+                                </tr>
+                                <!-- Puedes agregar más filas según sea necesario -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="row justify-content-end mt-4">
+                        <div class="col-md-4">
+                            <div class="card bg-dark text-white p-3">
+                                <h5 class="mb-3">Resumen del Pedido</h5>
+                                <div class="d-flex justify-content-between">
+                                    <span>Subtotal:</span>
+                                    <span id="subtotal">$40.00</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span>Total:</span>
+                                    <span id="total">$40.00</span>
+                                </div>
+                                <button class="btn btn-block mt-3 checkout-btn">Pagar Ahora</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="empty-cart-msg mt-5">
+                        <p>El carrito está vacío.</p>
+                        <a href="index.html" class="btn btn-link text-white">Seguir Comprando</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Manejar el evento de eliminación de productos
+            $('.delete-btn').click(function () {
+                $(this).closest('tr').remove(); // Eliminar la fila actual
+                updateCartTotal(); // Actualizar el subtotal y total del carrito
+                checkEmptyCart(); // Verificar si el carrito está vacío y mostrar mensaje apropiado
+            });
+
+            // Manejar el cambio de cantidad de productos
+            $('.quantity-input').change(function () {
+                var quantity = $(this).val();
+                var price = parseFloat($(this).closest('tr').find('td:eq(2)').text().replace('$', ''));
+                var subtotal = price * quantity;
+                $(this).closest('tr').find('td:eq(4)').text('$' + subtotal.toFixed(2));
+                updateCartTotal(); // Actualizar el subtotal y total del carrito
+            });
+
+            // Función para actualizar el subtotal y total del carrito
+            function updateCartTotal() {
+                var subtotal = 0;
+                $('#cartTable tbody tr').each(function () {
+                    var price = parseFloat($(this).find('td:eq(2)').text().replace('$', ''));
+                    var quantity = parseInt($(this).find('.quantity-input').val());
+                    var total = price * quantity;
+                    $(this).find('td:eq(4)').text('$' + total.toFixed(2));
+                    subtotal += total;
+                });
+                $('#subtotal').text('$' + subtotal.toFixed(2));
+                $('#total').text('$' + subtotal.toFixed(2)); // Total igual al subtotal en este caso
+            }
+
+            // Función para verificar si el carrito está vacío
+            function checkEmptyCart() {
+                if ($('#cartTable tbody tr').length === 0) {
+                    $('.table-responsive').hide(); // Ocultar tabla
+                    $('.empty-cart-msg').show(); // Mostrar mensaje de carrito vacío
+                }
+            }
+
+            // Llamar a la función de verificación inicialmente
+            checkEmptyCart();
+        });
+    </script>
+</body>
+
+</html>
